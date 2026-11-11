@@ -1,0 +1,80 @@
+[
+    {
+        "exception_id": "EXC-2026-000001",
+        "anomaly_code": "PRICE_VARIANCE",
+        "entity_type": "ORDER_LINE",
+        "entity_id": 1,
+        "sales_order_id": "SO-2026-000001",
+        "quote_id": "QTE-2026-000021",
+        "expected_amount": 946.02,
+        "actual_amount": 1135.22,
+        "variance_amount": 189.2,
+        "description": "Order net unit price increased by approximately 20% compared with the quoted price."
+    },
+    {
+        "exception_id": "EXC-2026-000002",
+        "anomaly_code": "SHIPMENT_QUANTITY",
+        "entity_type": "SHIPMENT_LINE",
+        "entity_id": 2,
+        "sales_order_id": "SO-2026-000001",
+        "expected_quantity": 13.0,
+        "actual_quantity": 14.0,
+        "description": "Shipment quantity exceeds the ordered quantity by one unit."
+    },
+    {
+        "exception_id": "EXC-2026-000003",
+        "anomaly_code": "BILLING_MISMATCH",
+        "entity_type": "INVOICE_LINE",
+        "entity_id": 1,
+        "sales_order_id": "SO-2026-000184",
+        "invoice_id": "INV-2026-000001",
+        "expected_quantity": 16.0,
+        "actual_quantity": 17.0,
+        "description": "Invoice quantity exceeds shipped quantity by one unit."
+    },
+    {
+        "exception_id": "EXC-2026-000004",
+        "anomaly_code": "CASH_APPLICATION",
+        "entity_type": "PAYMENT_ALLOCATION",
+        "entity_id": 2,
+        "payment_id": "PAY-2026-000002",
+        "invoice_id": "INV-2026-000003",
+        "expected_amount": 6717.88,
+        "actual_amount": 7717.88,
+        "variance_amount": 1000.0,
+        "description": "Payment allocation exceeds the actual payment amount by 1000.00."
+    },
+    {
+        "exception_id": "EXC-2026-000005",
+        "anomaly_code": "DISPUTE_LEAKAGE",
+        "entity_type": "DISPUTE",
+        "entity_id": "DSP-2026-000034",
+        "dispute_id": "DSP-2026-000034",
+        "invoice_id": "INV-2026-000344",
+        "expected_amount": 0.0,
+        "actual_amount": 4718.23,
+        "variance_amount": 4718.23,
+        "description": "Approved dispute credit has not been applied to the corresponding invoice."
+    },
+    {
+        "exception_id": "EXC-2026-000006",
+        "anomaly_code": "ORDER_CLOSED_UNPAID",
+        "entity_type": "SALES_ORDER",
+        "entity_id": "SO-2026-000026",
+        "sales_order_id": "SO-2026-000026",
+        "invoice_id": "INV-2026-000002",
+        "expected_amount": 11370.05,
+        "actual_amount": 0.0,
+        "description": "Sales order closed while its invoice has an outstanding unpaid balance."
+    },
+    {
+        "exception_id": "EXC-2026-000007",
+        "anomaly_code": "STATUS_TRANSITION_SKIP",
+        "entity_type": "SALES_ORDER",
+        "entity_id": "SO-2026-000026",
+        "sales_order_id": "SO-2026-000026",
+        "expected_status": "DELIVERED",
+        "actual_status": "CLOSED",
+        "description": "Sales order transitioned directly from SHIPPED to CLOSED, skipping DELIVERED."
+    }
+]
